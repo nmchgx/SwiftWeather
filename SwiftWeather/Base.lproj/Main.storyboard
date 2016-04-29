@@ -59,8 +59,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="location" destination="Db6-zl-cmt" id="Cjw-B3-K68"/>
-                        <outlet property="temperture" destination="dVF-2l-vXC" id="9kI-Tw-doP"/>
+                        <outlet property="cityLabel" destination="Ggl-qH-Idr" id="vZg-pk-7f2"/>
+                        <outlet property="tempLabel" destination="dVF-2l-vXC" id="fNZ-eq-ats"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIB-3K-cIj" userLabel="First Responder" sceneMemberID="firstResponder"/>

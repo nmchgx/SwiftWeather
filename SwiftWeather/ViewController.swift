@@ -13,8 +13,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
 
     let locationManger:CLLocationManager = CLLocationManager()
     
-    @IBOutlet var location: UILabel!
-    @IBOutlet weak var temperture: UILabel!
+    @IBOutlet var cityLabel: UILabel!
+    @IBOutlet var tempLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +55,18 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     
     func updateUI(sourceData: NSDictionary) {
         print(sourceData)
-        if let mainDic = sourceData["main"] as? NSDictionary {
-            if let temp = mainDic["temp"] as? Double {
-                temperture.text = String(temp)
+        if let tempResult = sourceData["main"]?["temp"] as? Double {
+            var temp: Double
+            if (sourceData["sys"]?["country"] as? String == "US") {
+                temp = round((tempResult - 273.15)*1.8 + 32)
             }
+            else {
+                temp = round(tempResult - 273.15)
+            }
+            tempLabel.text = "\(temp)°"
+        }
+        if let name = sourceData["name"] as? String {
+            cityLabel.text = "\(name)"
         }
     }
     
